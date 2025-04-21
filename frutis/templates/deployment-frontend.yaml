@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.nodejsApp.name }}
+spec:
+  replicas: {{ .Values.replicaCounts.nodejsApp }}
+  selector:
+    matchLabels:
+      app: {{ .Values.nodejsApp.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nodejsApp.name }}
+    spec:
+      containers:
+      - name: {{ .Values.nodejsApp.name }}
+        image: {{ .Values.nodejsApp.image.repository }}:{{ .Values.nodejsApp.image.tag }}
+        ports:
+        - containerPort: {{ .Values.nodejsApp.containerPort }}
+        env:
+        - name: MONGO_URI
+          value: {{ .Values.nodejsApp.env.mongoUri }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.nodejsApp.name }}
+spec:
+  selector:
+    app: {{ .Values.nodejsApp.name }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.services.nodejsApp.port }}
+      targetPort: {{ .Values.services.nodejsApp.targetPort }}
