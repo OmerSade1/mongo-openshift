@@ -21,10 +21,6 @@ spec:
         - name: init-script
           mountPath: /docker-entrypoint-initdb.d
           readOnly: true
-        securityContext:
-          runAsUser: 1001100000
-          runAsGroup: 1001100000       
-          fsGroup: 1001100000
       volumes:
       - name: init-script
         configMap:
