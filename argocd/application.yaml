@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/OmerSade1/mongo-openshift.git
     targetRevision: HEAD
-    path: fruits
+    path: frutis
     helm:
       valueFiles:
         - values.yaml 
