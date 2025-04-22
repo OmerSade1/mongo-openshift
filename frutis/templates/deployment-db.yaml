@@ -19,8 +19,7 @@ spec:
         - containerPort: {{ .Values.mongoDB.containerPort }}
         volumeMounts:
         - name: init-script
-          mountPath: /docker-entrypoint-initdb.d/{{ .Values.mongoDB.volume.scriptName }}
-          subPath: {{ .Values.mongoDB.volume.scriptName }}
+          mountPath: /docker-entrypoint-initdb.d
           readOnly: true
       volumes:
       - name: init-script
