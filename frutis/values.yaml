@@ -2,6 +2,7 @@ replicaCounts:
   nodejsApp: 1
   mongoDB: 1
 
+
 nodejsApp:
   name: nodejs-app
   image:
