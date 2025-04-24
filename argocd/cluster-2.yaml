@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - values.yaml 
   destination:
-    server: <managed-cluster2-name>
+    server: https://api.ocp.octopus.labs:6443
     namespace: default
   syncPolicy:
     automated:
